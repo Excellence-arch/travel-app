@@ -1,10 +1,17 @@
 import { useFormik } from "formik";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import { register } from "../actions";
 import NavBar from "../layouts/NavBar";
+import { validPassword, validPhone } from "../validations/regex";
 
 const Register = () => {
+  const [allErr, setAllErr] = useState(false);
+  const [showPwd, setShowPwd] = useState(false);
+  const dispatch = useDispatch();
+
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
   const formik = useFormik({
     initialValues: {
@@ -14,11 +21,33 @@ const Register = () => {
       password: "",
       confirmPassword: "",
     },
+    validate: (values) => {
+      const errors = {};
+      if (!validPhone.test(values.phone)) {
+        errors.phone = "Not a valid phone number";
+      }
+      if (!validPassword.test(values.password)) {
+        errors.password = "Please try a stronger password";
+      }
+      if (values.password !== values.confirmPassword) {
+        errors.confirmPassword = "Password does not match";
+      }
+      return errors;
+    },
     validationSchema: Yup.object({
       full_name: Yup.string().required("Required"),
       email: Yup.string().email("Email is invalid").required("Required"),
       phone: Yup.string().required("Required"),
     }),
+    onSubmit: (values) => {
+      setAllErr(false);
+      const { full_name, email, phone, password } = values;
+      try {
+        dispatch(register({ full_name, email, phone, password }));
+      } catch (err) {
+        setAllErr(err);
+      }
+    },
   });
   return (
     <>
@@ -30,6 +59,9 @@ const Register = () => {
               onSubmit={formik.handleSubmit}
               className="container rounded p-3 shadow-lg"
             >
+              {allErr ? (
+                <div className="alert alert-danger">{allErr}</div>
+              ) : null}
               <input
                 type="text"
                 placeholder="Full Name"
@@ -85,7 +117,51 @@ const Register = () => {
               {formik.touched.phone ? (
                 <div className="text-danger">{formik.errors.phone}</div>
               ) : null}
-              <input type="text" placeholder="password" />
+
+              <input
+                type={showPwd ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                style={darkMode ? { color: "white" } : { color: "black" }}
+                className={
+                  formik.touched.password && formik.errors.password
+                    ? "form-control my-2 is-invalid bg-transparent"
+                    : "form-control my-2 bg-transparent"
+                }
+              />
+
+              {formik.touched.password ? (
+                <div className="text-danger">{formik.errors.password}</div>
+              ) : null}
+
+              <input
+                type={showPwd ? "text" : "password"}
+                placeholder="Confirm Password"
+                name="confirmPassword"
+                value={formik.values.confirmPassword}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                style={darkMode ? { color: "white" } : { color: "black" }}
+                className={
+                  formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword
+                    ? "form-control my-2 is-invalid bg-transparent"
+                    : "form-control my-2 bg-transparent"
+                }
+              />
+
+              {formik.touched.confirmPassword ? (
+                <div className="text-danger">
+                  {formik.errors.confirmPassword}
+                </div>
+              ) : null}
+
+              <input type="checkbox" onChange={() => setShowPwd(!showPwd)} />
+              <span>Show Password</span>
+
               <button
                 type="submit"
                 className={

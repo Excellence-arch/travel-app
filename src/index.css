@@ -5,3 +5,9 @@
 .nav-navy {
   background-color: #2b3743 !important;
 }
+
+.real-bg-navy {
+  background-color: #212e37 !important;
+  width: 100vw;
+  height: 100vh;
+}

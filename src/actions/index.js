@@ -12,4 +12,18 @@ const dark = (val) => {
   };
 };
 
-export { light, dark };
+const register = (values) => {
+  return {
+    type: "REGISTER",
+    payload: values,
+  };
+};
+
+const login = (values) => {
+  return {
+    type: "LOGIN",
+    payload: values,
+  };
+};
+
+export { light, dark, register, login };
