@@ -13,11 +13,11 @@ const NavBar = () => {
     <nav
       className={
         darkMode
-          ? "navbar navbar-expand-sm mb-3 navbar-dark nav-navy"
-          : "navbar navbar-expand-sm mb-3 navbar-light bg-light"
+          ? "navbar navbar-expand-sm navbar-dark nav-navy"
+          : "navbar navbar-expand-sm navbar-light bg-light"
       }
     >
-      <Link className="navbar-brand" to="#">
+      <Link className="navbar-brand" to="/">
         Navbar
       </Link>
       <button
@@ -32,17 +32,17 @@ const NavBar = () => {
       <div className="collapse navbar-collapse" id="collapsibleNavId">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <Link className="nav-link" to="#">
+            <Link className="nav-link" to="/">
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="#">
+            <Link className="nav-link" to="/about">
               About Us
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="#">
+            <Link className="nav-link" to="/contact">
               Contact Us
             </Link>
           </li>

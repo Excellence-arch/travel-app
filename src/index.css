@@ -11,3 +11,33 @@
   width: 100vw;
   height: 100vh;
 }
+
+.roads {
+  /* animation: moving 50s linear infinite; */
+}
+
+.moveCar{
+  animation: carMoves 10s linear infinite;
+}
+
+.moveBus {
+  animation: busMoves 15s linear infinite;
+}
+
+@keyframes moving {
+  100% {
+    transform: translateX(-2950px);
+  }
+}
+
+@keyframes busMoves {
+  100% {
+    transform: translateX(1400px);
+  }
+}
+
+@keyframes carMoves {
+  100% {
+    transform: translateX(-1500px);
+  }
+}

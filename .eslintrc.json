@@ -27,6 +27,7 @@
     "no-else-return": "off",
     "no-throw-literal":"off",
     "no-nested-ternary":"off",
+    "react-hooks/exhaustive-deps": "off",
     "camelcase":"off",
     "no-case-declarations": "off",
     "no-param-reassign": "off",

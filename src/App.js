@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import MapDetails from "./pages/MapDetails";
 import Register from "./pages/Register";
 
 const App = () => {
@@ -14,6 +15,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/about" />
+        <Route path="/contact" />
+        <Route path="/maps" element={<MapDetails />} />
       </Routes>
     </div>
   );
