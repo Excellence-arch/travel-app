@@ -16,12 +16,34 @@
   /* animation: moving 50s linear infinite; */
 }
 
-.moveCar{
+.moveCarMedium{
   animation: carMoves 10s linear infinite;
+  left: 96%;
 }
 
-.moveBus {
-  animation: busMoves 15s linear infinite;
+.moveCarFast{
+  animation: carMoves 5s linear infinite;
+  left: 96%;
+}
+
+.moveCarSlow{
+  animation: carMoves 20s linear infinite;
+  left: 96%;
+}
+
+.moveBusMedium {
+  animation: busMoves 10s linear infinite;
+  left: -10%;
+}
+
+.moveBusSlow {
+  animation: busMoves 20s linear infinite;
+  left: -10%;
+}
+
+.moveBusFast {
+  animation: busMoves 5s linear infinite;
+  left: -10%;
 }
 
 @keyframes moving {

@@ -50,7 +50,7 @@ const NavBar = () => {
       </div>
       {darkMode ? (
         <button
-          className="bg-dark bg-transparent border-0 mx-4"
+          className="text-white bg-transparent border-0 mx-4"
           onClick={() => dispatch(light(false))}
           type="button"
         >
@@ -58,7 +58,7 @@ const NavBar = () => {
         </button>
       ) : (
         <button
-          className="bg-light bg-transparent border-0 mx-4"
+          className="text-dark bg-transparent border-0 mx-4"
           onClick={() => dispatch(dark(true))}
           type="button"
         >
