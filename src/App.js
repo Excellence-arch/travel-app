@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MapDetails from "./pages/MapDetails";
 import Register from "./pages/Register";
+import TravelDetails from "./pages/TravelDetails";
 
 const App = () => {
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/maps" element={<MapDetails />} />
+        <Route path="/travel-details" element={<TravelDetails />} />
       </Routes>
     </div>
   );

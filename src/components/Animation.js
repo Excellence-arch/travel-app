@@ -24,10 +24,9 @@ const Animation = () => {
     width: `500%`,
     display: `block`,
     position: `absolute`,
-    bottom: `40%`,
+    bottom: `37%`,
     left: `0%`,
     backgroundRepeat: `repeat-x`,
-    // animation: `moving 6s linear infinite`,
   };
 
   const car = {
@@ -37,8 +36,6 @@ const Animation = () => {
 
   const lastLaneImgStyle = {
     width: `200px`,
-    // height: `100px`,
-    // right: `0%`,
     zIndex: `20`,
     bottom: `3%`,
     position: `absolute`,
@@ -48,14 +45,14 @@ const Animation = () => {
     width: `200px`,
     // height: `100px`,
     position: `absolute`,
-    bottom: `40%`,
+    bottom: `35%`,
   };
 
   const middleLaneImgStyle = {
     width: `200px`,
     // height: `100px`,
     zIndex: `20`,
-    bottom: `24%`,
+    bottom: `20%`,
     position: `absolute`,
   };
 
