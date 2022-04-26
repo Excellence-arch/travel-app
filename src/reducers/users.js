@@ -1,15 +1,21 @@
 let dbUsers = [];
+let online = null;
 
 if (localStorage.allUsers) {
   dbUsers = JSON.parse(localStorage.allUsers);
 }
+
+if (localStorage.onlineUser) {
+  online = JSON.parse(localStorage.onlineUser);
+}
+
 const initState = {
   full_name: "",
   email: "",
   phone: "",
   password: "",
   allUsers: dbUsers,
-  onlineUser: null,
+  onlineUser: online,
 };
 const users = (state = initState, action) => {
   switch (action.type) {
@@ -44,6 +50,7 @@ const users = (state = initState, action) => {
           onlineUser: foundEmailnPassword.id,
         };
       } else {
+        // console.log("no");
         throw "Incorrect Login details";
       }
     default:

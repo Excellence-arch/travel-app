@@ -1,7 +1,13 @@
+let longitude;
+let latitude;
+
 const initState = {
+  lon: longitude,
+  lat: latitude,
   allCities: [],
   bookedCities: [],
 };
+
 const cities = (state = initState, action) => {
   switch (action.type) {
     case "BOOK":

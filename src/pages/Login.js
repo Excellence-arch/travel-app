@@ -1,11 +1,13 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { login } from "../actions";
 import NavBar from "../layouts/NavBar";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [allErr, setAllErr] = useState(false);
   const [showPwd, setShowPwd] = useState(false);
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
@@ -23,8 +25,12 @@ const Login = () => {
       setAllErr(false);
       try {
         dispatch(login(values));
+        navigate("/home");
       } catch (err) {
-        setAllErr(err);
+        if (err) {
+          setAllErr(err);
+          console.log(err);
+        }
       }
     },
   });
@@ -35,7 +41,7 @@ const Login = () => {
         <div className="row mt-5">
           <div className="col-6 text-center container rounded shadow-lg">
             <form onSubmit={formik.handleSubmit} className="p-3">
-              {formik.errors.email && formik.errors.password ? (
+              {(formik.errors.email && formik.errors.password) || allErr ? (
                 <div className="alert alert-danger">{allErr}</div>
               ) : null}
               <input

@@ -1,22 +1,43 @@
-import { useLoadScript } from "@react-google-maps/api";
-import { useNavigate } from "react-router-dom";
-import Buttons from "../components/Buttons";
-import Map from "../components/Map";
+import React, { useRef, useEffect, useState } from "react";
+import ReactMapboxGl, { Layer, Feature, Marker } from "react-mapbox-gl";
+import marker from "../assets/mapbox-icon.png";
 
 const MapDetails = () => {
-  const navigate = useNavigate();
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+  const [lon, setLon] = useState(0);
+  const [lat, setLat] = useState(0);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((res) => {
+      // console.log(res);
+      setLon(res.coords.latitude);
+      setLat(res.coords.longitude);
+    });
+    // console.log(lon, lat);
+  }, [lat]);
+  const Map = ReactMapboxGl({
+    accessToken:
+      "pk.eyJ1IjoiZXhjZWxsZW5jZS1hcmNoIiwiYSI6ImNsMmZ5YnF4djBhNHUzY3BjYzN5OWR1dzQifQ.TVUj0aN0Botq-K152NWWsQ",
   });
-  const moreInfo = () => {
-    navigate("/travel-details");
-  };
-
-  if (!isLoaded) return <div>Loading... </div>;
+  const styleUrl = "mapbox://styles/mapbox/streets-v9";
   return (
     <>
-      <Map />
-      <Buttons name="Next" onClick={moreInfo} color="primary" />
+      <Map
+        style={styleUrl}
+        containerStyle={{
+          height: "100vh",
+          width: "100vw",
+        }}
+        center={[9.082, 8.6753]}
+        zoom={[5.5]}
+      >
+        <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
+          <Feature coordinates={[9.082, 8.6753]} />
+        </Layer>
+        <Marker coordinates={[lon, lat]} anchor="bottom">
+          {" "}
+          <img src={marker} style={{ width: "50px" }} alt="marker" />{" "}
+        </Marker>
+      </Map>
+      ;
     </>
   );
 };

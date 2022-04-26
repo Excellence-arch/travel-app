@@ -1,5 +1,11 @@
+import NavBar from "../layouts/NavBar";
+
 const LoginHome = () => {
-  return <div>LoginHome</div>;
+  return (
+    <div>
+      <NavBar />
+    </div>
+  );
 };
 
 export default LoginHome;
