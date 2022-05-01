@@ -14,8 +14,7 @@ const MapDetails = () => {
     // console.log(lon, lat);
   }, [lat]);
   const Map = ReactMapboxGl({
-    accessToken:
-      "pk.eyJ1IjoiZXhjZWxsZW5jZS1hcmNoIiwiYSI6ImNsMmZ5YnF4djBhNHUzY3BjYzN5OWR1dzQifQ.TVUj0aN0Botq-K152NWWsQ",
+    accessToken: process.env.REACT_APP_MAPBOX_PUBLIC_KEY,
   });
   const styleUrl = "mapbox://styles/mapbox/streets-v9";
   return (

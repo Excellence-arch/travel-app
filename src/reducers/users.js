@@ -10,13 +10,16 @@ if (localStorage.onlineUser) {
 }
 
 const initState = {
-  full_name: "",
-  email: "",
-  phone: "",
-  password: "",
   allUsers: dbUsers,
   onlineUser: online,
+  full_name: "",
+  email: "",
 };
+if (initState.onlineUser !== null) {
+  initState.full_name = initState.allUsers[initState.onlineUser].full_name;
+  initState.email = initState.allUsers[initState.onlineUser].email;
+}
+
 const users = (state = initState, action) => {
   switch (action.type) {
     case "REGISTER":
@@ -45,6 +48,7 @@ const users = (state = initState, action) => {
           val.password === action.payload.password,
       );
       if (foundEmailnPassword) {
+        localStorage.onlineUser = JSON.stringify(foundEmailnPassword.id);
         return {
           ...state,
           onlineUser: foundEmailnPassword.id,
@@ -53,6 +57,12 @@ const users = (state = initState, action) => {
         // console.log("no");
         throw "Incorrect Login details";
       }
+    case "LOGOUT":
+      localStorage.onlineUser = JSON.stringify(action.payload);
+      return {
+        ...state,
+        onlineUser: action.payload,
+      };
     default:
       return {
         ...state,

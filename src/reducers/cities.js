@@ -6,6 +6,8 @@ const initState = {
   lat: latitude,
   allCities: [],
   bookedCities: [],
+  distance: "",
+  cost: "",
 };
 
 const cities = (state = initState, action) => {

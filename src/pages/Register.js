@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { register } from "../actions";
 import NavBar from "../layouts/NavBar";
@@ -11,6 +11,7 @@ const Register = () => {
   const [allErr, setAllErr] = useState(false);
   const [showPwd, setShowPwd] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
   const formik = useFormik({
@@ -46,6 +47,9 @@ const Register = () => {
         dispatch(register({ full_name, email, phone, password }));
       } catch (err) {
         setAllErr(err);
+      }
+      if (allErr === false) {
+        navigate("/login");
       }
     },
   });

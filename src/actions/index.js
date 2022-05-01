@@ -26,4 +26,11 @@ const login = (values) => {
   };
 };
 
-export { light, dark, register, login };
+const logout = () => {
+  return {
+    type: "LOGOUT",
+    payload: null,
+  };
+};
+
+export { light, dark, register, login, logout };

@@ -41,6 +41,7 @@
     "react/jsx-props-no-spreading": ["warn"],
     "react/no-array-index-key": "off",
     "react/style-prop-object": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "no-plusplus": "off",
     "no-return-assign": "off",
     "no-shadow": "off",
