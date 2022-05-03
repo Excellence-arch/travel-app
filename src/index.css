@@ -63,3 +63,7 @@
     transform: translateX(-1500px);
   }
 }
+
+.float-right {
+  float: right;
+}
