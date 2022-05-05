@@ -1,13 +1,69 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.bg-navy {
+  background-color: #212e37 !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.nav-navy {
+  background-color: #2b3743 !important;
+}
+
+.real-bg-navy {
+  background-color: #212e37 !important;
+  width: 100vw;
+  height: 100vh;
+}
+
+.roads {
+  /* animation: moving 50s linear infinite; */
+}
+
+.moveCarMedium{
+  animation: carMoves 10s linear infinite;
+  left: 96%;
+}
+
+.moveCarFast{
+  animation: carMoves 5s linear infinite;
+  left: 96%;
+}
+
+.moveCarSlow{
+  animation: carMoves 20s linear infinite;
+  left: 96%;
+}
+
+.moveBusMedium {
+  animation: busMoves 10s linear infinite;
+  left: -10%;
+}
+
+.moveBusSlow {
+  animation: busMoves 20s linear infinite;
+  left: -10%;
+}
+
+.moveBusFast {
+  animation: busMoves 5s linear infinite;
+  left: -10%;
+}
+
+@keyframes moving {
+  100% {
+    transform: translateX(-2950px);
+  }
+}
+
+@keyframes busMoves {
+  100% {
+    transform: translateX(1400px);
+  }
+}
+
+@keyframes carMoves {
+  100% {
+    transform: translateX(-1500px);
+  }
+}
+
+.float-right {
+  float: right;
 }
