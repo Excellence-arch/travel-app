@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Buttons from "../components/Buttons";
 import ShowMap from "../containers/ShowMap";
 import NavBar from "../layouts/NavBar";
 
