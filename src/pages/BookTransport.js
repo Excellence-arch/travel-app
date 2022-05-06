@@ -2,16 +2,19 @@ import { useFormik } from "formik";
 import React from "react";
 import { useSelector } from "react-redux";
 import { PaystackButton } from "react-paystack";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../layouts/NavBar";
 
 const BookTransport = () => {
+  const navigate = useNavigate();
   const name = useSelector((state) => state.usersReducer.full_name);
   const mail = useSelector((state) => state.usersReducer.email);
+  const cost = useSelector((state) => state.citiesReducer.cost);
   const publicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
   const formik = useFormik({
     initialValues: {
       email: mail,
-      amount: 9000000,
+      amount: cost,
       full_name: name,
     },
   });
@@ -58,11 +61,14 @@ const BookTransport = () => {
             <PaystackButton
               className="btn btn-success w-100"
               text="Pay"
-              amount={formik.values.amount}
+              amount={formik.values.amount * 100}
               name={formik.values.full_name}
               publicKey={publicKey}
               email={formik.values.email}
-              onSuccess={() => alert("Payment successful")}
+              onSuccess={() => {
+                alert("Payment successful");
+                navigate("/home");
+              }}
               onClose={() => alert("This payment will not be made")}
             />
           </div>

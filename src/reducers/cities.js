@@ -20,6 +20,11 @@ const cities = (state = initState, action) => {
       return {
         ...state,
       };
+    case "ADDAMOUNT":
+      return {
+        ...state,
+        cost: action.payload,
+      };
     default:
       return {
         ...state,

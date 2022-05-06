@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import * as Yup from "yup";
 import { login } from "../actions";
 import NavBar from "../layouts/NavBar";
@@ -84,6 +84,10 @@ const Login = () => {
                 Login
               </button>
             </form>
+            <div>
+              Not Registered?
+              <Link to="/register">Register here</Link>
+            </div>
           </div>
         </div>
       </div>

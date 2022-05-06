@@ -26,6 +26,13 @@ const login = (values) => {
   };
 };
 
+const addPrice = (amount) => {
+  return {
+    type: "ADDAMOUNT",
+    payload: amount,
+  };
+};
+
 const logout = () => {
   return {
     type: "LOGOUT",
@@ -33,4 +40,4 @@ const logout = () => {
   };
 };
 
-export { light, dark, register, login, logout };
+export { light, dark, register, login, logout, addPrice };

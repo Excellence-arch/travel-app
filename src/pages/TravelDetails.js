@@ -1,22 +1,17 @@
 import { useFormik } from "formik";
-import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Buttons from "../components/Buttons";
 import NavBar from "../layouts/NavBar";
 
 const TravelDetails = () => {
+  const navigate = useNavigate();
   // const [terms, setTerms] = useState(false);
   const formik = useFormik({
     initialValues: {
       date: "",
       terms: false,
       times: "09:15",
-    },
-    validate: () => {
-      // const errors = {};
-      // if (terms === false) {
-      //   errors.newTerm = "Please agree to our terms and conditions of service";
-      // }
     },
     validationSchema: Yup.object({
       date: Yup.date().required("Required"),
@@ -26,7 +21,7 @@ const TravelDetails = () => {
       ),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      navigate("/book-transport");
     },
   });
   return (

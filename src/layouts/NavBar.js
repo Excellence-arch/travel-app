@@ -20,7 +20,7 @@ const NavBar = () => {
       }
     >
       <Link className="navbar-brand" to="/">
-        Navbar
+        Tripify
       </Link>
       <button
         className="navbar-toggler d-lg-none"
@@ -33,9 +33,14 @@ const NavBar = () => {
       />
       <div className="collapse navbar-collapse" id="collapsibleNavId">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link className="nav-link" to="/">
               Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/maps">
+              Maps
             </Link>
           </li>
           <li className="nav-item">
@@ -93,9 +98,14 @@ const NavBar = () => {
       />
       <div className="collapse navbar-collapse" id="collapsibleNavId">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link className="nav-link" to="/">
               Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/maps">
+              Maps
             </Link>
           </li>
           <li className="nav-item">
