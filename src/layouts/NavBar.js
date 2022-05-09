@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ const NavBar = () => {
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
   const loggedIn = useSelector((state) => state.usersReducer.onlineUser);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return loggedIn === null ? (
     <nav
@@ -23,15 +24,17 @@ const NavBar = () => {
         Tripify
       </Link>
       <button
-        className="navbar-toggler d-lg-none"
+        className="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#collapsibleNavId"
-        aria-controls="collapsibleNavId"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-      />
-      <div className="collapse navbar-collapse" id="collapsibleNavId">
+      >
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item">
             <Link className="nav-link" to="/">
@@ -124,7 +127,10 @@ const NavBar = () => {
         name="Logout"
         types="button"
         color=""
-        handleClick={() => dispatch(logout())}
+        handleClick={() => {
+          navigate("/");
+          dispatch(logout());
+        }}
       />
       {darkMode ? (
         <button

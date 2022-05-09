@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import * as Yup from "yup";
 import React from "react";
 import { useSelector } from "react-redux";
 import { PaystackButton } from "react-paystack";
@@ -17,19 +18,24 @@ const BookTransport = () => {
       amount: cost,
       full_name: name,
     },
+    validationSchema: Yup.object({
+      amount: Yup.string().required(),
+    }),
   });
   return (
     <div>
       <NavBar />
-      <div className="container">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-6 container">
             <form onSubmit={formik.handleSubmit}>
+              <h2 className="my-3 text-center">Book Transport</h2>
               <div className="form-group">
                 <label htmlFor="email">Email Address</label>
                 <input
                   type="email"
                   name="email"
+                  className="w-100 my-2 form-control bg-transparent"
                   value={formik.values.email}
                   onChange={formik.handleChange}
                   disabled
@@ -41,6 +47,7 @@ const BookTransport = () => {
                 <input
                   type="number"
                   name="amount"
+                  className="w-100 my-2 form-control bg-transparent"
                   disabled
                   onChange={formik.handleChange}
                   value={formik.values.amount}
@@ -52,6 +59,7 @@ const BookTransport = () => {
                 <input
                   type="text"
                   name="full_name"
+                  className="w-100 my-2 form-control bg-transparent"
                   disabled
                   onChange={formik.handleChange}
                   value={formik.values.full_name}

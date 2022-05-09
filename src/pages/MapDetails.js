@@ -7,7 +7,7 @@ const MapDetails = () => {
     <>
       <NavBar />
       <ShowMap />
-      <Link to="/book-transport" className="mx-4 btn btn-primary float-right">
+      <Link to="/travel-details" className="mx-4 btn btn-primary float-right">
         Next
       </Link>
     </>
