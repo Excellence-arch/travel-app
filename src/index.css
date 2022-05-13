@@ -67,3 +67,7 @@
 .float-right {
   float: right;
 }
+
+* {
+  margin: 0px;
+}

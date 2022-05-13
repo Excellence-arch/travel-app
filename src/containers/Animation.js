@@ -235,7 +235,10 @@ const Animation = () => {
           />
         </div>
       </div>
-      <div> &nbsp </div>
+      <div className="text-center">
+        <h1 className="display-4 text-center">Tripify</h1>
+        <p>Travel to anywhere in Nigeria without worrying about your safety</p>
+      </div>
     </>
   );
 };

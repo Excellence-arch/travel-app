@@ -12,6 +12,7 @@ import Register from "./pages/Register";
 import TermsOfService from "./pages/TermsOfService";
 import TravelDetails from "./pages/TravelDetails";
 import BookTransport from "./pages/BookTransport";
+import Footer from "./layouts/Footer";
 
 const App = () => {
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
@@ -39,6 +40,7 @@ const App = () => {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <section>
+      <section className="text-center">
         <Animation />
         <Link className="btn btn-info" to="/register">
           Get Started
