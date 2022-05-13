@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../layouts/NavBar";
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Contact";
+  }, []);
+
   return (
     <>
       <NavBar />

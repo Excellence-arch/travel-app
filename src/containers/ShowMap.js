@@ -1,18 +1,20 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
+import mapboxgl from "mapbox-gl";
+// import MapboxWorker from "worker-loader";
 import { addPrice } from "../actions";
 
 const ShowMap = () => {
+  // mapboxgl.workerClass = MapboxWorker;
+
   const styleUrl = "mapbox://styles/mapbox/streets-v9";
+  const darkUrl = "mapbox://styles/mapbox/dark-v10";
   let map = useRef(null);
   const mapContainer = useRef(null);
-  const [distance, setDistance] = useState("");
-  const [duration, setDuration] = useState("");
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
@@ -25,7 +27,7 @@ const ShowMap = () => {
     map = new mapboxgl.Map({
       accessToken: process.env.REACT_APP_MAPBOX_PUBLIC_KEY,
       container: mapContainer.current,
-      style: styleUrl,
+      style: darkMode ? darkUrl : styleUrl,
       center: [9.082, 8.6753],
       zoom: [5.5],
     });
@@ -62,8 +64,6 @@ const ShowMap = () => {
         dur = res.data.routes[0].duration / 60;
         ste = res.data.routes[0].legs[0].steps;
         coor = res.data.routes[0].geometry;
-        setDistance(res.data.routes[0].distance * 0.001);
-        setDuration(res.data.routes[0].duration / 60);
         dispatch(addPrice(Math.round(dist * 7)));
         addRoute(coor);
       })

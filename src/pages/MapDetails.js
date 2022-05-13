@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ShowMap from "../containers/ShowMap";
 import NavBar from "../layouts/NavBar";
 
 const MapDetails = () => {
+  useEffect(() => {
+    document.title = "Maps";
+  }, []);
+
   return (
     <>
       <NavBar />

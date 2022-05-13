@@ -88,7 +88,7 @@ const NavBar = () => {
       }
     >
       <Link className="navbar-brand" to="/">
-        Navbar
+        Tripify
       </Link>
       <button
         className="navbar-toggler d-lg-none"
@@ -125,8 +125,8 @@ const NavBar = () => {
       </div>
       <Buttons
         name="Logout"
+        color="light"
         types="button"
-        color=""
         handleClick={() => {
           navigate("/");
           dispatch(logout());

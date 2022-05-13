@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import NavBar from "../layouts/NavBar";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About";
+  }, []);
+
   return (
     <>
       <NavBar />

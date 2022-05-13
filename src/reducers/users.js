@@ -52,6 +52,8 @@ const users = (state = initState, action) => {
         return {
           ...state,
           onlineUser: foundEmailnPassword.id,
+          full_name: state.allUsers[foundEmailnPassword.id].full_name,
+          email: state.allUsers[foundEmailnPassword.id].email,
         };
       } else {
         // console.log("no");
@@ -62,6 +64,8 @@ const users = (state = initState, action) => {
       return {
         ...state,
         onlineUser: action.payload,
+        full_name: "",
+        email: "",
       };
     default:
       return {

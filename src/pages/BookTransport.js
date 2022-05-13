@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import React from "react";
 import { useSelector } from "react-redux";
 import { PaystackButton } from "react-paystack";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,11 @@ const BookTransport = () => {
   const mail = useSelector((state) => state.usersReducer.email);
   const cost = useSelector((state) => state.citiesReducer.cost);
   const publicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
+
+  useEffect(() => {
+    document.title = "Book Transport";
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       email: mail,
