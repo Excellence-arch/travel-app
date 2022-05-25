@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import NavBar from "../layouts/NavBar";
 
 const About = () => {
@@ -39,8 +40,26 @@ const About = () => {
         <p>
           Check him out on:
           <ul>
-            <li>Github: https://github.com/excellence-arch</li>
-            <li>LinkedIn: https://linkedin.com/in/dev-michael-oladipupo</li>
+            <li>
+              Github:
+              <a
+                href="https://github.com/excellence-arch"
+                rel="noreferrer"
+                target="_blank"
+              >
+                https://github.com/excellence-arch
+              </a>
+            </li>
+            <li>
+              LinkedIn:
+              <a
+                href="https://linkedin.com/in/dev-michael-oladipupo"
+                target="_blank"
+                rel="noreferrer"
+              >
+                https://linkedin.com/in/dev-michael-oladipupo
+              </a>
+            </li>
           </ul>
         </p>
         <p>His portfolio website will be uploaded soon...</p>

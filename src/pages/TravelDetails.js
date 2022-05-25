@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Buttons from "../components/Buttons";
@@ -7,6 +8,11 @@ import NavBar from "../layouts/NavBar";
 const TravelDetails = () => {
   const navigate = useNavigate();
   // const [terms, setTerms] = useState(false);
+
+  useEffect(() => {
+    document.tile = "Travel Details";
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       date: "",

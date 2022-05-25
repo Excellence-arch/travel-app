@@ -13,6 +13,7 @@ import TermsOfService from "./pages/TermsOfService";
 import TravelDetails from "./pages/TravelDetails";
 import BookTransport from "./pages/BookTransport";
 import Footer from "./layouts/Footer";
+import Guide from "./components/Guide";
 
 const App = () => {
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
@@ -23,9 +24,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Navigate to="/maps" />} />
+        <Route path="/home" element={<Navigate to="/guide" />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/guide" element={<Guide />} />
         <Route path="/maps" element={<MapDetails />} />
         <Route path="/book-transport" element={<BookTransport />} />
         <Route path="/travel-details" element={<TravelDetails />} />

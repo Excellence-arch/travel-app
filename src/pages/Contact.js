@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <>
       <NavBar />
-      <h1>Contact Us</h1>
+      <h1 className="display-4 text-center">Contact Us</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam fugit
         deserunt possimus perferendis sapiente eum quidem, nesciunt nisi

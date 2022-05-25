@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Animation from "../containers/Animation";
 import NavBar from "../layouts/NavBar";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
   return (
     <>
       <NavBar />

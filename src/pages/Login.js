@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import * as Yup from "yup";
@@ -12,6 +12,11 @@ const Login = () => {
   const [showPwd, setShowPwd] = useState(false);
   const darkMode = useSelector((state) => state.modeReducer.darkMode);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.title = "Login";
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -29,7 +34,7 @@ const Login = () => {
       } catch (err) {
         if (err) {
           setAllErr(err);
-          console.log(err);
+          // console.log(err);
         }
       }
     },
