@@ -8,14 +8,14 @@ import NavBar from "../layouts/NavBar";
 
 const TravelDetails = () => {
   const navigate = useNavigate();
-  const onlineUser = useSelector((state) => state.usersReducer.onlineUser);
+  // const onlineUser = useSelector((state) => state.usersReducer.onlineUser);
 
   useEffect(() => {
     document.tile = "Travel Details";
   }, []);
 
   useEffect(() => {
-    if (onlineUser) {
+    if (JSON.parse(localStorage.onlineUser) !== null) {
       navigate("/travel-details");
     } else {
       navigate("/login");
