@@ -91,15 +91,17 @@ const NavBar = () => {
         Tripify
       </Link>
       <button
-        className="navbar-toggler d-lg-none"
+        className="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#collapsibleNavId"
-        aria-controls="collapsibleNavId"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-      />
-      <div className="collapse navbar-collapse" id="collapsibleNavId">
+      >
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item">
             <Link className="nav-link" to="/">
