@@ -2,15 +2,24 @@ import { useFormik } from "formik";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { useSelector } from "react-redux";
 import Buttons from "../components/Buttons";
 import NavBar from "../layouts/NavBar";
 
 const TravelDetails = () => {
   const navigate = useNavigate();
-  // const [terms, setTerms] = useState(false);
+  const onlineUser = useSelector((state) => state.usersReducer.onlineUser);
 
   useEffect(() => {
     document.tile = "Travel Details";
+  }, []);
+
+  useEffect(() => {
+    if (onlineUser) {
+      navigate("/travel-details");
+    } else {
+      navigate("/login");
+    }
   }, []);
 
   const formik = useFormik({

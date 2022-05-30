@@ -42,16 +42,17 @@ const Login = () => {
   return (
     <>
       <NavBar />
-      <div className="container mt-5">
-        <div className="row mt-5">
+      <div className="container mt-5 mb-5">
+        <div className="row mt-5 pt-5">
           <div className="col-6 text-center container rounded shadow-lg">
             <form onSubmit={formik.handleSubmit} className="p-3">
+              <h4 className="display-4 text-center my-3">Login</h4>
               {(formik.errors.email && formik.errors.password) || allErr ? (
                 <div className="alert alert-danger">{allErr}</div>
               ) : null}
               <input
                 type="text"
-                placeholder="email"
+                placeholder="Email"
                 name="email"
                 style={darkMode ? { color: "white" } : { color: "black" }}
                 className={
@@ -69,7 +70,7 @@ const Login = () => {
 
               <input
                 type={showPwd ? "text" : "password"}
-                placeholder="password"
+                placeholder="Password"
                 name="password"
                 style={darkMode ? { color: "white" } : { color: "black" }}
                 className={
@@ -85,12 +86,12 @@ const Login = () => {
               <input type="checkbox" onChange={() => setShowPwd(!showPwd)} />
               <span>Show Password</span>
 
-              <button className="btn btn-info w-100" type="submit">
+              <button className="btn btn-info w-100 my-3" type="submit">
                 Login
               </button>
             </form>
-            <div>
-              Not Registered?
+            <div className="mb-3">
+              Not Registered? &nbsp;
               <Link to="/register">Register here</Link>
             </div>
           </div>

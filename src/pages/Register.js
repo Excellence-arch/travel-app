@@ -62,7 +62,7 @@ const Register = () => {
       <NavBar />
       <div className="container mt-5">
         <div className="row">
-          <div className="col-6 text-center container">
+          <div className="col-6 text-center pt-5 container">
             <form
               onSubmit={formik.handleSubmit}
               className="container rounded p-3 shadow-lg"

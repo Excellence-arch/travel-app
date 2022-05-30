@@ -52,6 +52,7 @@ const Contact = () => {
         repellendus vero at fuga explicabo voluptates possimus tempore ipsum.
         Ipsam possimus neque quo consectetur ipsum commodi voluptas ut optio!
       </p>
+      <p>Thank you for visiting our site</p>
     </>
   );
 };
