@@ -15,7 +15,7 @@ const TravelDetails = () => {
   }, []);
 
   useEffect(() => {
-    if (JSON.parse(localStorage.onlineUser) !== null) {
+    if (localStorage.onlineUser) {
       navigate("/travel-details");
     } else {
       navigate("/login");
