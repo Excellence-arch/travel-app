@@ -4,7 +4,7 @@ import axios from "axios";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
-import mapboxgl from "mapbox-gl";
+import mapboxgl from "!mapbox-gl";
 // import MapboxWorker from "worker-loader";
 import { addPrice } from "../actions";
 

@@ -45,6 +45,7 @@
     "jsx-a11y/label-has-associated-control": "off",
     "no-plusplus": "off",
     "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
     "no-return-assign": "off",
     "no-shadow": "off",
     "react/prop-types": "off",

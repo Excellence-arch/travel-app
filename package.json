@@ -41,9 +41,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "builds": "react-scripts build",
+    "build": "react-scripts build",
     "dev": "webpack serve",
-    "build": "webpack",
+    "builds": "webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
@@ -59,7 +59,9 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "defaults",
+      "not ie 11"
     ],
     "development": [
       "last 1 chrome version",
